@@ -19,16 +19,16 @@ class Planet(Enum):
         self.japanese = jap
 
 
-def find_planet_sign(planet: int, degree: float):
-    planet_data = 0
-    sign_data = ""
-    idx = Sign.find_sign_from_degree(degree)
+def find_planet_sign(idx: int, degree: float):
+    planet_data: int = 0
+    sign_data: str = ""
+    planet_sign: Sign = Sign.find_sign_from_degree(degree)
     for p in Planet:
-        if p.value[0] == planet:
+        if p.value[0] == idx:
             planet_data = p.japanese
 
     for s in Sign:
-        if s == idx:
+        if s == planet_sign:
             sign_data = s.japanese
     return planet_data, sign_data
 

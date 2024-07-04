@@ -15,9 +15,9 @@ class Sign(Enum):
     Aquarius = (10, "水瓶座")
     Pisces = (11, "魚座")
 
-    def __init__(self, idx, jap):
-        self.index = idx
-        self.japanese = jap
+    def __init__(self, idx: int, jap: str):
+        self.index: int = idx
+        self.japanese: str = jap
 
     @classmethod
     def find_sign(cls, idx: int) -> 'Sign':
@@ -37,9 +37,9 @@ class Modalities(Enum):
     Fixed = (1, "不動宮")
     Mutable = (2, "柔軟宮")
 
-    def __init__(self, idx, modal):
-        self.index = idx
-        self.modal = modal
+    def __init__(self, idx: int, modal: str):
+        self.index: int = idx
+        self.modal: str = modal
 
 
 class Elements(Enum):
@@ -48,9 +48,9 @@ class Elements(Enum):
     Air = (2, "風")
     Water = (3, "水")
 
-    def __init__(self, idx, elm):
-        self.index = idx
-        self.elm = elm
+    def __init__(self, idx: int, elm: str):
+        self.index: int = idx
+        self.elm: str = elm
 
 
 def calc_degree(degree: float):
@@ -59,7 +59,7 @@ def calc_degree(degree: float):
 
 
 def find_modalities_from_degree(degree: float):
-    idx = calc_degree(degree) % 3
+    idx: int = calc_degree(degree) % 3
     for modalities in Modalities:
         if modalities.value[0] == idx:
             return modalities
@@ -67,7 +67,7 @@ def find_modalities_from_degree(degree: float):
 
 
 def find_element_from_degree(degree: float):
-    idx = calc_degree(degree) % 4
+    idx: int = calc_degree(degree) % 4
     for element in Elements:
         if element.value[0] == idx:
             return element
